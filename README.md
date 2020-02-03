@@ -6,4 +6,4 @@ Steps:
 2. Build [xiangweizeng/ncnn](https://github.com/xiangweizeng/ncnn) for android.
 3. Put model, ncnn header files and static lib into project.
 
-[darknet2ncnn-android](https://github.com/paleomoon/darknet2ncnn-android) is deprecated, since darknet2ncnn merged darknet layers into [xiangweizeng/ncnn](https://github.com/xiangweizeng/ncnn).
+[darknet2ncnn-android](https://github.com/paleomoon/darknet2ncnn-android) is deprecated, since @xiangweizeng merged darknet layers into [xiangweizeng/ncnn](https://github.com/xiangweizeng/ncnn).
