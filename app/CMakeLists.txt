@@ -11,12 +11,21 @@ cmake_minimum_required(VERSION 3.4.1)
 # Gradle automatically packages shared libraries with your APK.
 set(CMAKE_BUILD_TYPE RELEASE)
 
-#include_directories(${ANDROID_SYSROOT}/usr/include/arm-linux-androideabi)
-
 include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include/ncnn)
 
-set(CMAKE_STATIC_LINKER_FLAGS "-lm  -pthread -fopenmp -lstdc++")
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++11 -Ofast -Wno-unused-result  -Wfatal-errors -fPIC -fno-rtti -fno-exceptions")
+# openmp
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fopenmp")
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fomit-frame-pointer -fstrict-aliasing -ffast-math")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fomit-frame-pointer -fstrict-aliasing -ffast-math")
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fvisibility=hidden")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -fvisibility-inlines-hidden")
+
+# disable rtti and exceptions
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti -fno-exceptions")
 
 add_library (libncnn STATIC IMPORTED)
 set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/src/main/jniLibs/armeabi-v7a/libncnn.a)
@@ -46,11 +55,11 @@ find_library( # Sets the name of the path variable.
         log
         android)
 #find_library( # Sets the name of the path variable.
-        #JniGraphics
+#JniGraphics
 
-        # Specifies the name of the NDK library that
-        # you want CMake to locate.
-        #jnigraphics)
+# Specifies the name of the NDK library that
+# you want CMake to locate.
+#jnigraphics)
 
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
@@ -61,7 +70,7 @@ target_link_libraries( # Specifies the target library.
         libncnn
         android
         jnigraphics
-        #vulkan
+        # vulkan
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})
