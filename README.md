@@ -7,3 +7,7 @@ Steps:
 3. Put model, ncnn header files and static lib into project.
 
 ![screenshot](screenshot.jpg)
+
+Reference: https://github.com/chehongshu/ncnnforandroid_objectiondetection_Mobilenetssd
+
+For vulkan support: https://github.com/nihui/ncnn-android-styletransfer
