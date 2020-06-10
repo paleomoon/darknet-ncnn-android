@@ -1,4 +1,4 @@
-Android demo to use converted darknet model in ncnn. 
+Android demo to use darknet model in ncnn. 
 
 Steps:
 
