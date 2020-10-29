@@ -11,3 +11,5 @@ Steps:
 Reference: https://github.com/chehongshu/ncnnforandroid_objectiondetection_Mobilenetssd
 
 For vulkan support: https://github.com/nihui/ncnn-android-styletransfer
+
+You can find another user-friendly tool at: https://github.com/Tencent/ncnn/tree/master/tools/darknet
